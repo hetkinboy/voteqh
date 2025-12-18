@@ -17,9 +17,9 @@ import pandas as pd
 st.set_page_config(page_title="Batch Register — Beryland", layout="centered")
 
 # === Constants (mặc định, không cần thay đổi) ===
+# sub="giaithuongngoisaoxanh"
 API_URL_DEFAULT = "https://eventista-platform-api.1vote.vn/v1/client/auth/register"
-REDIRECT_TPL_DEFAULT = "https://giaithuongngoisaoxanh.1vote.vn/xac-nhan-tai-khoan?registerStatus=1&email={email}"
-
+REDIRECT_TPL_DEFAULT = "https://lansongxanh.1vote.vn/xac-nhan-tai-khoan?registerStatus=1&email={email}"
 # Initialize session state
 if "running" not in st.session_state:
     st.session_state.running = False
@@ -69,7 +69,7 @@ with st.form("config_form"):
     col1, col2 = st.columns([2,1])
     with col1:
         st.text_input("API URL (mặc định)", value=API_URL_DEFAULT, key="api_url_display", disabled=True)
-        st.text_input("Redirect Path Template (mặc định, dùng {email})", value=REDIRECT_TPL_DEFAULT, key="redirect_display", disabled=True)
+        st.text_input("Redirect Path Template (mặc định, dùng {email})", value=REDIRECT_TPL_DEFAULT, key="redirect_display", disabled=False)
         base = st.text_input("Base (phần trước dấu +)", value="mrtienkaza", help="ví dụ: mrtienkaza")
         domain = st.text_input("Domain (không cần @)", value="gmail.com", help="ví dụ: gmail.com")
         password = st.text_input("Password cho tất cả tài khoản", value="123456")
